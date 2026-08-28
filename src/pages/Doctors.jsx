@@ -6,8 +6,12 @@ import { Link } from 'react-router-dom'
 // const API_BASE = 'http://localhost:8080/api'
 // const BACKEND_URL = 'http://localhost:8080'
 
-const API_BASE = import.meta.env.VITE_API_URL;
-const BACKEND_URL = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  "https://hospital-management-backend-vpco.onrender.com/api";
+
+const BACKEND_URL =
+  API_BASE.replace(/\/api\/?$/, "");
 
 // Helper to get full image URL
 const getImageUrl = (path) => {

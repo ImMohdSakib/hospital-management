@@ -46,8 +46,12 @@ import { staggerContainer, fadeUp } from '../components/ui/PageTransition';
 import HomeFAQ from './HomeFAQ';
 
 // ---- Helper for image URLs ----
-const API_BASE = import.meta.env.VITE_API_URL;
-const BACKEND_URL = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  "https://hospital-management-backend-vpco.onrender.com/api";
+
+const BACKEND_URL =
+  API_BASE.replace(/\/api\/?$/, "");
 
 const getImageUrl = (path) => {
   if (!path) return null;

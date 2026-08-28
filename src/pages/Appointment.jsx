@@ -4,8 +4,12 @@ import { CheckCircle2, Loader2, User, Phone, Mail, Calendar, Clock, Stethoscope 
 import { useSearchParams } from 'react-router-dom'
 
 // Change this if your backend runs on a different host/port
-const API_BASE = import.meta.env.VITE_API_URL;
-const BACKEND_URL = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  "https://hospital-management-backend-vpco.onrender.com/api";
+
+const BACKEND_URL =
+  API_BASE.replace(/\/api\/?$/, "");
 
 // Helper to get full image URL
 const getImageUrl = (path) => {
