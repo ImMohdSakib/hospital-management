@@ -3,8 +3,11 @@ import { motion } from 'framer-motion'
 import { Phone, Calendar, User } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-const API_BASE = 'http://localhost:8080/api'
-const BACKEND_URL = 'http://localhost:8080'
+// const API_BASE = 'http://localhost:8080/api'
+// const BACKEND_URL = 'http://localhost:8080'
+
+const API_BASE = import.meta.env.VITE_API_URL;
+const BACKEND_URL = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
 
 // Helper to get full image URL
 const getImageUrl = (path) => {

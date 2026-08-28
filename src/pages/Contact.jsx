@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Phone, Mail, Loader2, CheckCircle2 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export default function Contact() {
   const [formData, setFormData] = useState({

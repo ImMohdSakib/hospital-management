@@ -25,8 +25,14 @@ const menuItems = [
 // Helper to get image URL (from environment or localhost)
 const getImageUrl = (path) => {
   if (!path) return null;
-  if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  return `http://localhost:8080${path}`;
+
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  const backendUrl = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
+
+  return `${backendUrl}${path}`;
 };
 
 // Generate initials avatar fallback

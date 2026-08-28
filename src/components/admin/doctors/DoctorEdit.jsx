@@ -7,9 +7,14 @@ import api from '../../../services/api';
 // ===== IMAGE URL HELPER =====
 const getImageUrl = (path) => {
   if (!path) return null;
-  if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  const base = import.meta.env?.VITE_BACKEND_URL || 'http://localhost:8080';
-  return `${base}${path}`;
+
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  const backendUrl = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
+
+  return `${backendUrl}${path}`;
 };
 
 export default function DoctorEdit() {

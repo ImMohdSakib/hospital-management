@@ -7,10 +7,14 @@ import api from '../../../services/api';
 // ===== IMAGE URL HELPER =====
 const getImageUrl = (path) => {
   if (!path) return null;
-  if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  // Use the same base URL as your API (without /api)
-  // Adjust this to your backend IP/domain
-  const base = import.meta.env?.VITE_BACKEND_URL || 'http://localhost:8080';
+
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const base = apiUrl.replace(/\/api\/?$/, "");
+
   return `${base}${path}`;
 };
 

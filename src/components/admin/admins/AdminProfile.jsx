@@ -10,12 +10,20 @@ import {
 import api from '../../../services/api';
 import { useAuth } from '../../../context/AuthContext';
 
+
+
 // ===================== IMAGE URL HELPER =====================
 
 const getImageUrl = (path) => {
   if (!path) return null;
-  if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  return `http://localhost:8080${path}`;
+
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  const backendUrl = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
+
+  return `${backendUrl}${path}`;
 };
 
 export default function AdminProfile() {
