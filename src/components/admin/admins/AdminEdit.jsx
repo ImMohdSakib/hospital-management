@@ -12,7 +12,13 @@ const getImageUrl = (path) => {
     return path;
   }
 
-  const apiUrl = import.meta.env.VITE_API_URL;
+  // const apiUrl = import.meta.env.VITE_API_URL;
+  // const base = apiUrl.replace(/\/api\/?$/, "");
+
+  const apiUrl =
+  import.meta.env.VITE_API_URL ||
+  "https://hospital-management-backend-vpco.onrender.com/api";
+
   const base = apiUrl.replace(/\/api\/?$/, "");
 
   return `${base}${path}`;

@@ -12,10 +12,14 @@ const getImageUrl = (path) => {
     return path;
   }
 
-  const backendUrl = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
-
+  const backendUrl = (
+    import.meta.env.VITE_API_URL ||
+    "https://hospital-management-backend-vpco.onrender.com/api"
+  ).replace(/\/api\/?$/, "");
   return `${backendUrl}${path}`;
 };
+
+
 
 export default function DoctorEdit() {
   const { username } = useParams();
