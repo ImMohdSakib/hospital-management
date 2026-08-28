@@ -51,9 +51,6 @@ const getImageUrl = (path) => {
 
 
 
-  return `${backendUrl}${path}`;
-};
-
 // ===================== COMPONENT =====================
 
 export default function AdminView() {
