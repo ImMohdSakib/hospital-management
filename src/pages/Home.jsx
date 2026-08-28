@@ -758,7 +758,7 @@ export default function Home() {
             </Link>
           </div>
         </motion.div>
-        {/* <button
+        <button
           type="button"
           onClick={() => {
             localStorage.clear();
@@ -767,7 +767,7 @@ export default function Home() {
           className="mt-3 text-xs text-red-500 underline hover:text-red-700"
         >
           🧹 Clear Stored Data (Fix Login Loop)
-        </button> */}
+        </button>
       </section>
     </div>
   );
