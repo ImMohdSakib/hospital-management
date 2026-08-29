@@ -24,15 +24,23 @@ const menuItems = [
 
 // Helper to get image URL (from environment or localhost)
 const getImageUrl = (path) => {
-  if (!path) return null;
+  if (!path || typeof path !== "string") {
+    return null;
+  }
 
   if (path.startsWith("http://") || path.startsWith("https://")) {
     return path;
   }
 
-  const backendUrl = import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "");
+  const apiUrl =
+    import.meta.env.VITE_API_URL ||
+    "https://hospital-management-backend-vpco.onrender.com/api";
 
-  return `${backendUrl}${path}`;
+  const backendUrl = apiUrl.replace(/\/api\/?$/, "");
+
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+
+  return `${backendUrl}${cleanPath}`;
 };
 
 // Generate initials avatar fallback
